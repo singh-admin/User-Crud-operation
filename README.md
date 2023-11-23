@@ -22,12 +22,30 @@ app---->(folder)
    
 3. Create the python virtual environment.
     python -m venv env
+   
+4. Activate the virtual environment.
+    env\Scripts\activate
 
-4. Install dependencies:
+5. Install dependencies:
     pip install -r requirements.txt
 
 ### Running the Application
-python crud.py
+    python crud.py
+
+Notes: once will run the code (python crud.py) then auto user.db(sqllite) will create and two table will migrate into the database.
+
+step: then visit the given url http://127.0.0.1:8000/docs will get swagger docs.
+![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/1aac38ea-7a1a-4da6-a8fc-5013dad03a5b)
+
+      1. need to create a user first.
+      ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/9b29a58a-e9ed-4b4f-9af8-50a6e2719ef8)
+      ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/2dc0f719-a84f-4638-adda-7a066168a33b)
+      2. after that if you want to use the get method for that you need to pass api key (key authentication).
+      ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/8e0e123f-cae6-42bf-9644-23b4e57fbe89)
+      ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/7db7fd37-fc3b-47ee-aa0c-14f1faa6f537)
+      3. that api key need to pass while hitting get method.
+      ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/ec7543ef-f6e5-4dab-913e-784635e08b2f)
+      ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/1f9e0819-087f-4103-8281-571024cb5931)
 
 
 The API will be available at http://127.0.0.1:8000
