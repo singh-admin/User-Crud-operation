@@ -72,40 +72,41 @@ async def create_user(user: UserCreate):
 @app.get("/get/{id}", response_model=UserResponse, tags=["Users Crud operation"])
 async def get_user(id: int, key: UserResponse = Depends(get_api_key)):
     db = SessionLocal()
-    item = db.query(User).filter(User.id == id).first()
+    user = db.query(User).filter(User.id == id).first()
     db.close()
-    if item is None:
+    if user is None:
         raise HTTPException(status_code=404, detail="user not found")
-    return item
+    user.message = f"Welcome, {user.name} !"
+    return user
 
 # put method used to update the particular record in user table
 @app.put("/update/{id}", response_model=UserResponse, tags=["Users Crud operation"])
 async def update_user(id: int, item: UserCreate):
     db = SessionLocal()
-    db_item = db.query(User).filter(User.id == id).first()
-    if db_item is None:
+    user = db.query(User).filter(User.id == id).first()
+    if user is None:
         db.close()
         raise HTTPException(status_code=404, detail="user not found")
-    db_item.name = item.name
+    user.name = item.name
     db_item.message = f"Welcome, {item.name} your profile got updated"
     db.commit()
     db.refresh(db_item)
     db.close()
-    return db_item
+    return user
 
 # Delete method used to delete the particular record from user table
 @app.delete("/delete/{id}", response_model=UserResponse, tags=["Users Crud operation"])
 async def delete_user(id: int, key: UserResponse = Depends(get_api_key)):
     db = SessionLocal()
-    db_item = db.query(User).filter(User.id == id).first()
-    if db_item is None:
+    user = db.query(User).filter(User.id == id).first()
+    if user is None:
         db.close()
         raise HTTPException(status_code=404, detail="user not found")
-    db_item.message = f"Welcome, {db_item.name} your profile got deleted"
+    user.message = f"Welcome, {user.name} your profile got deleted"
     db.delete(db_item)
     db.commit()
     db.close()
-    return db_item
+    return user
 
 # Run the Application through Uvicorn.
 if __name__ == "__main__":
