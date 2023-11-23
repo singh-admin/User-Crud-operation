@@ -38,7 +38,8 @@ step: then visit the given url http://127.0.0.1:8000/docs will get swagger docs.
 ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/1aac38ea-7a1a-4da6-a8fc-5013dad03a5b)
 
       1. need to create a user first.
-      ![image](https://github.com/singh-admin/User-Crud-operation/assets/61795935/062b2419-9400-4fe8-b8fd-7d605c521e00)
+      ![image](https://github.com/singh-admin/User-Crud-operation/assets/61795935/21bdda42-aed2-4b32-b453-4450b95c343d)
+
       2. after that if you want to use the get method for that you need to pass api key (key authentication).
       ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/8e0e123f-cae6-42bf-9644-23b4e57fbe89)
       ![image](https://github.com/singh-admin/User-Crud-operation-Using-FastApi-/assets/61795935/7db7fd37-fc3b-47ee-aa0c-14f1faa6f537)
