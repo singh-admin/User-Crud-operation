@@ -103,7 +103,7 @@ async def delete_user(id: int, key: UserResponse = Depends(get_api_key)):
         db.close()
         raise HTTPException(status_code=404, detail="user not found")
     user.message = f"Welcome, {user.name} your profile got deleted"
-    db.delete(db_item)
+    db.delete(user)
     db.commit()
     db.close()
     return user
