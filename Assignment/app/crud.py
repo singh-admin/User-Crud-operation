@@ -88,9 +88,9 @@ async def update_user(id: int, item: UserCreate):
         db.close()
         raise HTTPException(status_code=404, detail="user not found")
     user.name = item.name
-    user.message = f"Welcome, {item.name} your profile got updated"
+    user.message = f"{item.name} your profile got updated"
     db.commit()
-    db.refresh(db_item)
+    db.refresh(user)
     db.close()
     return user
 
@@ -102,7 +102,7 @@ async def delete_user(id: int, key: UserResponse = Depends(get_api_key)):
     if user is None:
         db.close()
         raise HTTPException(status_code=404, detail="user not found")
-    user.message = f"Welcome, {user.name} your profile got deleted"
+    user.message = f"{user.name} your profile got deleted"
     db.delete(user)
     db.commit()
     db.close()
