@@ -88,7 +88,7 @@ async def update_user(id: int, item: UserCreate):
         db.close()
         raise HTTPException(status_code=404, detail="user not found")
     user.name = item.name
-    db_item.message = f"Welcome, {item.name} your profile got updated"
+    user.message = f"Welcome, {item.name} your profile got updated"
     db.commit()
     db.refresh(db_item)
     db.close()
