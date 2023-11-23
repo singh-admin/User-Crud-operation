@@ -15,7 +15,7 @@ app---->(folder)
   ### Installation
 
 1. Clone the repository:
-    git clone https://github.com/
+    git clone https://github.com/singh-admin/User-Crud-operation-Using-FastApi-
 
 2. Navigate to the project directory:
     cd Assignment/app
